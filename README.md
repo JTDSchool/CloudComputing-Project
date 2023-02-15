@@ -88,5 +88,5 @@ docker image rm IntelSystImage
 ```
 
 ## Additional Documentation
-(https://docs.docker.com/engine/reference/commandline/cli/)[Docker CLI documentation]
-(https://docs.jupyter.org/en/latest/)[Jupyter Notebook Documentation]
+[Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/cli/)
+[Jupyter Notebook Documentation](https://docs.jupyter.org/en/latest/)
