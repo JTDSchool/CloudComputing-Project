@@ -6,10 +6,10 @@ This repository houses the files and instructions for the CSCI 4905/6905 Intelli
 
 ### Build the Image 
 ```
-docker build -t IntelSystImage <directory with the dockerfile>
+docker build -t example/intelsystimage <directory with the dockerfile>
 ```
 
-Note that you can change the name of the image something other than IntelSystImage, but all instructions below will assume that is the name of the image  
+Note that you can change the name of the image something other than example/intelsystimage, but all instructions below will assume that is the name of the image  
 
 
 ### Create and Run the container
@@ -19,7 +19,7 @@ There are multiple ways to create and run a container, below are two of the avai
 Generally, you want a Docker container to run in a (mostly) isolated manner. It should have all the data it needs to run the containerized application or it should have some process to obtain the information it needs (say an API call). The container is generally not supposed to read/write on the host operating system. So why would we want to mount a volume to the host operating system? When a Docker container is destroyed, all of the contains of the container are also destroyed with **no way to recover them**.  This is okay when we have a base image where all of the details on what goes in the container are stored there, but for this project you will be developing a notebook within the container. This means that if 1. you do not mount a volume on the host machine and 2. you do not modify your file on that volume, **you will lose all your work on your container if the container is destroyed**. 
 
 ```
-docker run -d --name JupyterNotebookContainer --mount type=bind,source="<absolute path where the project folder is stored>\Notebooks",target=/home/jovyan/notebooks -p 8888:8888 IntelSystImage
+docker run -d --name JupyterNotebookContainer --mount type=bind,source="<absolute path where the project folder is stored>\Notebooks",target=/home/jovyan/notebooks -p 8888:8888 example/intelsystimage
 ```
 
 Note that you can change the name of the container to something other than JupyterNotebookContainer, but all instructions below will assume that is the name of the container.   
@@ -28,7 +28,7 @@ Note that you can change the name of the container to something other than Jupyt
 This is the way the container should be run once the project is completed, all of the necessary files to run the image and the notebook will be stored within the container itself. This is **NOT** the preferred way for you to do your development work. **You should only run a container for this project in this manner when you are finished doing development within the container and your notebook has been saved on your host machine.**
 
 ```
-docker run -d --name JupyterNotebookContainer  -p 8888:8888 IntelSystImage
+docker run -d --name JupyterNotebookContainer  -p 8888:8888 example/intelsystimage
 ```  
 
 ### Accessing the Jupyter Notebook within the container
@@ -89,7 +89,7 @@ docker rm JupyterNotebookContainer
 
 ### Deleting the Image
 ```bash
-docker image rm IntelSystImage
+docker image rm example/intelsystimage
 ```  
 
 ## Additional Documentation
