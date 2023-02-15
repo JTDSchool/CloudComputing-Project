@@ -1,7 +1,6 @@
 # CSCI 4905/6905 Intelligent Systems Visualization Container Project
 This repository houses the files and instructions for the CSCI 4905/6905 Intelligent Systems Spring 2023 project. 
 \
-\
 
 ## Various tasks associated with creating Docker images and containers:
 
@@ -11,7 +10,6 @@ docker build -t IntelSystImage <directory with the dockerfile>
 ```
 
 Note that you can change the name of the image something other than IntelSystImage, but all instructions below will assume that is the name of the image
-\
 \
 
 ### Create and Run the container
@@ -32,7 +30,6 @@ This is the way the container should be run once the project is completed, all o
 ```
 docker run -d --name JupyterNotebookContainer  -p 8888:8888 IntelSystImage
 ```
-\
 \
 
 ### Accessing the Jupyter Notebook within the container
@@ -71,7 +68,6 @@ Executing the command: jupyter lab
 
 Copy and paste one of the two URLs at the bottom of the output into a web browser. 
 \
-\
 
 ### Starting the Container 
 The ```docker run``` command above will create and start the container, but if the container is stopped (say because of a system restart), you can restart the container like so:
@@ -79,13 +75,11 @@ The ```docker run``` command above will create and start the container, but if t
 docker start JupyterNotebookContainer
 ```
 \
-\
 
 ### Stopping the Container
 ```bash
 docker stop JupyterNotebookContainer
 ```
-\
 \
 
 ### Removing the Container
@@ -93,13 +87,11 @@ docker stop JupyterNotebookContainer
 docker rm JupyterNotebookContainer
 ```
 \
-\
 
 ### Deleting the Image
 ```bash
 docker image rm IntelSystImage
 ```
-\
 \
 
 ## Additional Documentation
