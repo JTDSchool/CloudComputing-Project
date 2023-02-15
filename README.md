@@ -103,5 +103,5 @@ docker image rm IntelSystImage
 
 
 ## Additional Documentation
-[Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/cli/)
-[Jupyter Notebook Documentation](https://docs.jupyter.org/en/latest/)
+- [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/cli/)
+- [Jupyter Notebook Documentation](https://docs.jupyter.org/en/latest/)
