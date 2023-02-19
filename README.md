@@ -4,6 +4,9 @@ This repository houses the files and instructions for the CSCI 4905/6905 Intelli
 
 ## Various tasks associated with creating Docker images and containers:
 
+### Adding your own data to the Notebook
+Simply place an unzipped version of your data within the Data directory of this repository. When you build the image (using the instructions below), it will automatically pull in the data at creation time.
+
 ### Build the Image 
 ```
 docker build -t example/intelsystimage <directory with the dockerfile>
