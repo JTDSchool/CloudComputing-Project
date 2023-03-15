@@ -25,6 +25,12 @@ Generally, you want a Docker container to run in a (mostly) isolated manner. It 
 docker run -d --name JupyterNotebookContainer --mount type=bind,source="<absolute path where the project folder is stored>\Notebooks",target=/home/jovyan/notebooks -p 8888:8888 example/intelsystimage
 ```
 
+If you are using macOS, make sure to use / instead of \
+
+```
+docker run -d --name JupyterNotebookContainer --mount type=bind,source="<absolute path where the project folder is stored>/Notebooks",target=/home/jovyan/notebooks -p 8888:8888 example/intelsystimage
+```
+
 Note that you can change the name of the container to something other than JupyterNotebookContainer, but all instructions below will assume that is the name of the container.   
 
 #### Create a completely isolated version of the container
