@@ -1,33 +1,21 @@
-FROM jupyter/tensorflow-notebook:latest
+FROM python:3.11
 
-ARG conda_env=python38
-ARG py_ver=3.8
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+ENV FLASK_APP src/app.py
 
-# you can add additional libraries you want mamba to install by listing them below the first line and ending with "&& \"
-RUN mamba create --quiet --yes -p "${CONDA_DIR}/envs/${conda_env}" python=${py_ver} ipython ipykernel && \
-    mamba clean --all -f -y
+WORKDIR /app
 
-# create Python kernel and link it to jupyter
-RUN "${CONDA_DIR}/envs/${conda_env}/bin/python" -m ipykernel install --user --name="${conda_env}" && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
-ARG conda_env=python3713
-ARG py_ver=3.7
+COPY . /app
 
-# you can add additional libraries you want mamba to install by listing them below the first line and ending with "&& \"
-RUN mamba create --quiet --yes -p "${CONDA_DIR}/envs/${conda_env}" python=${py_ver} ipython ipykernel && \
-    mamba clean --all -f -y
+# Make port 8888 available to the world outside this container for JupyterLab
+# Make port 5000 available for Flask
+EXPOSE 8888 5000
 
-# create Python kernel and link it to jupyter
-RUN "${CONDA_DIR}/envs/${conda_env}/bin/python" -m ipykernel install --user --name="${conda_env}" && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+RUN pip install jupyterlab
 
-RUN mkdir /home/jovyan/notebooks/
-RUN mkdir /home/jovyan/data/
-RUN mkdir /home/jovyan/external/
-
-
-COPY ./Notebooks/ /home/jovyan/notebooks/
-COPY ./Data/ /home/jovyan/data/
+# Run JupyterLab and Flask app
+CMD ["sh", "-c", "jupyter lab --ip='*' --port=8888 --no-browser --allow-root & flask run --host=0.0.0.0 --port=5000"]
