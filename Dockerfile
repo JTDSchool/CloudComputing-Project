@@ -16,6 +16,7 @@ COPY . /app
 EXPOSE 8888 5000
 
 RUN pip install jupyterlab
+RUN pip install ipywidgets
 
 # Run JupyterLab and Flask app
 CMD ["sh", "-c", "jupyter lab --ip='*' --port=8888 --no-browser --allow-root & flask run --host=0.0.0.0 --port=5000"]
