@@ -1,5 +1,11 @@
 # Instructions
 
+## Pre-Requisites
+
+Ensure you do this.
+
+1. Run and export the model using the `SummerizationModel.ipynb` notebook.
+
 ## Build Image and Container
 
 1. `docker build -t text-summerization-app .`
