@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build",
+        "type": "shell",
+        "windows": {
+            "command": "powershell -ExecutionPolicy ByPass -File \\scripts\\build.ps1"
+        },
+        "linux": {
+            "command": "source ./scripts/build.sh"
+        },
+        "osx": {
+            "command": "source ./scripts/build.sh"
+        },
+        "options": {
+            "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+      }
+    ]
+  }
+  

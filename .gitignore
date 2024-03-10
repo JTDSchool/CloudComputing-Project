@@ -1,3 +1,6 @@
-*/.ipynb_checkpoints/
-*/__pycache__/
+**/.ipynb_checkpoints/
+**/__pycache__/
 venv/
+build/
+.pytest_cache/
+src/model/
