@@ -2,6 +2,8 @@
 
 source venv/bin/activate
 
+set -e
+
 # Define paths for tools
 BLACK_PATH="build/tools/black"
 PYLINT_PATH="build/tools/pylint"
