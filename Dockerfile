@@ -9,7 +9,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app
+COPY ./app /app
 
 # Make port 8888 available to the world outside this container for JupyterLab
 # Make port 5000 available for Flask
