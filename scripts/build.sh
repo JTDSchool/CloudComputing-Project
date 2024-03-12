@@ -13,7 +13,7 @@ mkdir -p "$BLACK_PATH" "$PYLINT_PATH" "$PYTEST_PATH"
 echo " "
 echo "--------- BLACK ---------------------------"
 echo " "
-if ! black src tests --config pyproject.toml --verbose 2>&1 | tee "$BLACK_PATH/black_output.txt"; then
+if ! black app cloud-functions tests --config pyproject.toml --verbose 2>&1 | tee "$BLACK_PATH/black_output.txt"; then
     echo "Black found format issues or encountered an error."
     exit 1
 fi
@@ -21,7 +21,7 @@ fi
 echo " "
 echo "--------- PYLINT ---------------------------"
 echo " "
-if ! pylint --rcfile pyproject.toml src tests --verbose 2>&1 | tee "$PYLINT_PATH/pylint_output.txt"; then
+if ! pylint --rcfile pyproject.toml app cloud-functions tests --verbose 2>&1 | tee "$PYLINT_PATH/pylint_output.txt"; then
     echo "Pylint encountered issues or errors."
     exit 1
 fi
