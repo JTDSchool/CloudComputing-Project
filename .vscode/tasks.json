@@ -23,6 +23,16 @@
             },
             "dependsOn": "Build",
             "problemMatcher": []
+        },
+        {
+            "label": "Deploy Function",
+            "type": "shell",
+            "command": "source ./scripts/deploy-functions.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "Build",
+            "problemMatcher": []
         }
     ]
 }  
