@@ -3,3 +3,4 @@
 venv/
 **/build/
 **/.pytest_cache/
+app/constants.py
