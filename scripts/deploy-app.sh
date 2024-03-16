@@ -19,4 +19,4 @@ docker build -t $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE:$TA
 docker push $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE:$TAG
 
 gcloud run deploy "text-summarization-app" \
-    --image=$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE:$TAG --platform managed --allow-unauthenticated
+    --image=$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY_NAME/$IMAGE:$TAG --platform managed --allow-unauthenticated --memory 4Gi
