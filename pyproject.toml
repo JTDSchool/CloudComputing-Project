@@ -11,13 +11,12 @@ exclude = '''
 
 [tool.pytest.ini_options]
 addopts = "--cov=app --cov-report=term-missing --cov-report=html:build/tools/pytest/htmlcov --cov-report=xml:build/tools/pytest/coverage.xml --verbose"
-testpaths = ["app", "cloud-functions"]
-
+testpaths = ["app"]
 
 [tool.coverage.run]
 branch = true
-source = ["app", "cloud-functions", "tests"]
-omit = ["app/__main__.py"]
+source = ["app", "tests"]
+omit = ["app/__main__.py", "cloud-functions/venv/*"]
 data_file = "build/tools/pytest/.coverage"
 
 [tool.coverage.report]
