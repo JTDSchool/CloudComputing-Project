@@ -1,7 +1,8 @@
 **/.ipynb_checkpoints/
 **/__pycache__/
-venv/
+**/venv/
 **/build/
 **/.pytest_cache/
 app/constants.py
 .DS_Store
+**/model/.Trash-*/
