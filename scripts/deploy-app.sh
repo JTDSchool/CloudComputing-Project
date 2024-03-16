@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+cd app
 
 export PROJECT_ID="cloudcomputing-project-416904"
 export PROJECT_NAME="cloudcomputing-project"
