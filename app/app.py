@@ -1,14 +1,13 @@
 """
 Flask Application for Text Summarization
 
-This Flask application provides endpoints for summarizing text using a pre-trained model.
+This Flask application provides endpoints for summarizing text 
+using a pre-trained model.
 
 Endpoints:
 - GET '/': Renders the index.html template with a form to input text.
-- POST '/summarize': Handles the form submission, validates API key, and summarizes the input text.
-
-Constants:
-- API_KEY: A constant representing the API key required for accessing the summarization service.
+- POST '/summarize': Handles the form submission, validates API key, 
+                    and summarizes the input text.
 
 Example Usage:
     $ python app.py
@@ -17,18 +16,19 @@ Example Usage:
     Open a web browser and navigate to http://127.0.0.1:5000/ to access the application.
 """
 
+import os
 from flask import Flask, render_template, request
 from .constants import API_KEY
 from .summarize import Summarizer
 
 app = Flask(__name__)
 
-# Initialize Summarizer with HDF5 model and tokenizer paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "model/build/t5_model/")
+MODEL_FILE = os.path.join(MODEL_PATH, "t5_model.pth")
+TOKENIZER_PATH = "t5-small"
 
-model_path = "model/build/t5_model/"
-model_file = "model/build/t5_model/t5_model.pth"
-tokenizer_path = "t5-small"
-summarizer = Summarizer(model_path, model_file, tokenizer_path)
+summarizer = Summarizer(MODEL_PATH, MODEL_FILE, TOKENIZER_PATH)
 
 
 @app.route("/")

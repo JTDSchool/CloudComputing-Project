@@ -10,13 +10,11 @@ exclude = '''
 '''
 
 [tool.pytest.ini_options]
-addopts = "--cov=app --cov-report=term-missing --cov-report=html:build/tools/pytest/htmlcov --cov-report=xml:build/tools/pytest/coverage.xml --verbose"
-testpaths = ["app"]
+addopts = "--cov=app --cov-branch  --cov-report=term-missing --cov-report=html:build/tools/pytest/htmlcov --cov-report=xml:build/tools/pytest/coverage.xml --verbose"
+testpaths = ["tests"]
 
 [tool.coverage.run]
-branch = true
-source = ["app", "tests"]
-omit = ["app/__main__.py", "cloud-functions/venv/*"]
+omit = ["app/__main__.py", "app/constants.py"]
 data_file = "build/tools/pytest/.coverage"
 
 [tool.coverage.report]
@@ -33,3 +31,5 @@ exclude_lines = [
 disable = []
 max-line-length = 88
 ignore-paths = [".venv/*"]
+branch = true
+source = ["app", "tests"]

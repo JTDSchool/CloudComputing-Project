@@ -1,8 +1,20 @@
+"""
+Summarizer Module
+
+This module provides a class for text summarization.
+"""
+
 import torch
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 
 class Summarizer:
+    """
+    Summarizer Class
+
+    This class provides methods to generate summaries using a pre-trained model.
+    """
+
     def __init__(self, model_path, model_file, tokenizer_path):
         """Initializes the Summarizer class with model and tokenizer paths."""
         self.model_path = model_path
@@ -41,6 +53,7 @@ class Summarizer:
         return summary
 
     def call_model(self, text):
-        """Generates summary for the given text using pre-trained model and tokenizer."""
+        """Generates summary for the given text using pre-trained model
+        and tokenizer."""
         summary = self.generate_summary(text)
         return summary
