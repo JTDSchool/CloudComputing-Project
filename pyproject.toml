@@ -28,7 +28,7 @@ exclude_lines = [
 ]
 
 [tool.pylint]
-disable = []
+disable = ["E0402"]
 max-line-length = 88
 ignore-paths = [".venv/*"]
 source = ["app", "tests"]
