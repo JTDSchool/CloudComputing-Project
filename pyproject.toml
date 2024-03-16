@@ -31,5 +31,4 @@ exclude_lines = [
 disable = []
 max-line-length = 88
 ignore-paths = [".venv/*"]
-branch = true
 source = ["app", "tests"]
