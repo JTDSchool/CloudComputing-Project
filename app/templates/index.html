@@ -1,17 +1,98 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Text Summarization</title>
-    </head>
+<head>
+    <title>Text Summarization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #036;
+        }
+        label {
+            margin-top: 10px;
+        }
+        textarea, input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        input[type="submit"], input[type="reset"]{
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"], input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100%;
+            background-color: #036;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #45a049;
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class ="sidebar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+    </div>
     <body>
+        <div class="container">
+            <h1>How to use:</h1>
+                <p style="margin-top: 20px;">Enter your text and API key above and click "Summarize" to see a condensed version of your text. This tool is designed to help simplify and summarize text for easier comprehension and quicker insights.</p>
+        </div>
+    </body>
+    <div class="container">
         <h1>Text Summarization</h1>
         <form action="/summarize" method="post">
             <label for="text">Text:</label><br />
-            <textarea id="text" name="text" rows="10" cols="50"></textarea
-            ><br /><br />
+            <textarea id="text" name="text" rows="10"></textarea><br /><br />
             <label for="api_key">API Key:</label><br />
             <input type="password" id="api_key" name="api_key" /><br /><br />
             <input type="submit" value="Summarize" />
+            <div class="container">
+                <h1>Summarization Result</h1>
+                <p>{{ summarized_text }}</p>
+            </div>
+            <input type="reset" value="Reset" />
         </form>
-    </body>
+    </div>
+</body>
 </html>
