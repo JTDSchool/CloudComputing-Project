@@ -1,62 +1,94 @@
-<!DOCTYPE html>
-<head>
-    <title>About Us</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #036;
-        }
-        p {
-            line-height: 1.6;
-        }
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>About Us</title>
+        <meta
+            name="description"
+            content="A project by three students exploring cloud computing and Google Cloud Platform (GCP)."
+        />
+        <meta
+            name="keywords"
+            content="Cloud Computing, Google Cloud Platform, GCP, Student Project"
+        />
+        <meta name="author" content="Jarred, Josh, Ryan" />
+        <style>
+            /* Base styles for the body */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+                color: #333;
+            }
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 100%;
-            background-color: #036;
-            padding-top: 20px;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-        }
-        .sidebar a:hover {
-            background-color: #45a049;
-        }
-        .content {
-            margin-left: 200px;
-            padding: 20px;
-        }
+            /* Container styling for main content */
+            .container {
+                max-width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
 
-    </style>
-</head>
-<body>
-    
-    <div class="container">
-        <h1>About Us</h1>
-        <p>Welcome to our Text Summarization tool, a simple yet powerful solution designed to help students, researchers, and professionals quickly understand and condense large texts. Our mission is to make information more accessible and digestible, saving you time and effort in your academic and professional pursuits. We believe in leveraging technology to enhance learning and productivity. Thank you for choosing our tool to assist in your endeavors.</p>
-    </div>
+            /* Header styles */
+            h1 {
+                color: #036;
+            }
 
-    <div class ="sidebar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-</body>
+            /* Paragraph styles */
+            p {
+                line-height: 1.6;
+            }
+
+            /* Sidebar styling */
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 100%;
+                background-color: #036;
+                padding-top: 20px;
+            }
+
+            /* Sidebar link styling */
+            .sidebar a {
+                display: block;
+                color: white;
+                padding: 10px;
+                text-decoration: none;
+            }
+
+            /* Sidebar link hover effect */
+            .sidebar a:hover {
+                background-color: #45a049;
+            }
+
+            /* Content styling, adjusted for sidebar */
+            .content {
+                margin-left: 200px;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Main container for the About Us page content -->
+        <div class="container">
+            <h1>About Us</h1>
+            <p>
+                This is a project made by three students in a cloud-computing
+                course. The goal being to learn and understand implementing an
+                application on Google Cloud Platform (GCP).
+            </p>
+        </div>
+
+        <!-- Sidebar navigation -->
+        <div class="sidebar">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </div>
+    </body>
 </html>

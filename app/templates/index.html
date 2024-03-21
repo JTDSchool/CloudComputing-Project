@@ -1,98 +1,147 @@
-<!DOCTYPE html>
-<head>
-    <title>Text Summarization</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #036;
-        }
-        label {
-            margin-top: 10px;
-        }
-        textarea, input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-            border-radius: 5px;
-        }
-        input[type="submit"], input[type="reset"]{
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 20px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="submit"], input[type="reset"]:hover {
-            background-color: #45a049;
-        }
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Text Summarization</title>
+        <meta
+            name="description"
+            content="A project by three students exploring cloud computing and Google Cloud Platform (GCP)."
+        />
+        <meta
+            name="keywords"
+            content="Cloud Computing, Google Cloud Platform, GCP, Student Project"
+        />
+        <meta name="author" content="Jarred, Josh, Ryan" />
+        <style>
+            /* Base styles */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+                color: #333;
+            }
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 100%;
-            background-color: #036;
-            padding-top: 20px;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-        }
-        .sidebar a:hover {
-            background-color: #45a049;
-        }
-        .content {
-            margin-left: 200px;
-            padding: 20px;
-        }
+            /* Container for content */
+            .container {
+                max-width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
 
-    </style>
-</head>
-<body>
-    <div class ="sidebar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-    </div>
+            /* Styles for headings */
+            h1 {
+                color: #036;
+            }
+
+            /* Margin for label elements */
+            label {
+                margin-top: 10px;
+            }
+
+            /* Styling for text areas and input fields */
+            textarea,
+            input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                border: 1px solid #ddd;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
+
+            /* Styles for submit and reset buttons */
+            input[type="submit"],
+            input[type="reset"] {
+                background-color: #4caf50;
+                color: white;
+                padding: 15px 20px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            /* Hover effects for buttons */
+            input[type="submit"]:hover,
+            input[type="reset"]:hover {
+                background-color: #45a049;
+            }
+
+            /* Sidebar styling */
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 100%;
+                background-color: #036;
+                padding-top: 20px;
+            }
+
+            /* Sidebar link styling */
+            .sidebar a {
+                display: block;
+                color: white;
+                padding: 10px;
+                text-decoration: none;
+            }
+
+            /* Sidebar link hover effect */
+            .sidebar a:hover {
+                background-color: #45a049;
+            }
+
+            /* Styling for content area */
+            .content {
+                margin-left: 200px;
+                padding: 20px;
+            }
+        </style>
+    </head>
     <body>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </div>
+
+        <!-- Container for instructions on how to use the application -->
         <div class="container">
             <h1>How to use:</h1>
-                <p style="margin-top: 20px;">Enter your text and API key above and click "Summarize" to see a condensed version of your text. This tool is designed to help simplify and summarize text for easier comprehension and quicker insights.</p>
+            <p style="margin-top: 20px">
+                Enter your text and API key above and click "Summarize" to see a
+                condensed version of your text. This tool is designed to help
+                simplify and summarize text for easier comprehension and quicker
+                insights.
+            </p>
+        </div>
+
+        <!-- Form for text summarization -->
+        <div class="container">
+            <h1>Text Summarization</h1>
+            <form action="/summarize" method="post">
+                <label for="text">Text:</label><br />
+                <textarea id="text" name="text" rows="10"></textarea
+                ><br /><br />
+                <label for="api_key">API Key:</label><br />
+                <input
+                    type="password"
+                    id="api_key"
+                    name="api_key"
+                /><br /><br />
+                <input type="submit" value="Summarize" />
+            </form>
+        </div>
+
+        <!-- Placeholder container for summarization result; to be dynamically filled -->
+        <div class="container">
+            <h1>Summarization Result</h1>
+            <p>{{ summarized_text }}</p>
         </div>
     </body>
-    <div class="container">
-        <h1>Text Summarization</h1>
-        <form action="/summarize" method="post">
-            <label for="text">Text:</label><br />
-            <textarea id="text" name="text" rows="10"></textarea><br /><br />
-            <label for="api_key">API Key:</label><br />
-            <input type="password" id="api_key" name="api_key" /><br /><br />
-            <input type="submit" value="Summarize" />
-            <div class="container">
-                <h1>Summarization Result</h1>
-                <p>{{ summarized_text }}</p>
-            </div>
-            <input type="reset" value="Reset" />
-        </form>
-    </div>
-</body>
 </html>
