@@ -1,12 +1,12 @@
 """
 Flask Application for Text Summarization
 
-This Flask application provides endpoints for summarizing text 
+This Flask application provides endpoints for summarizing text
 using a pre-trained model.
 
 Endpoints:
 - GET '/': Renders the index.html template with a form to input text.
-- POST '/summarize': Handles the form submission, validates API key, 
+- POST '/summarize': Handles the form submission, validates API key,
                     and summarizes the input text.
 
 Example Usage:
@@ -34,8 +34,12 @@ summarizer = Summarizer(MODEL_PATH, MODEL_FILE, TOKENIZER_PATH)
 @app.route("/")
 def index():
     """Renders the index.html template with a form to input text."""
-    return render_template("index.html")
+    return render_template("index.html", summarized_text="")
 
+@app.route("/about")
+def about():
+    """Renders the about.html template."""
+    return render_template("about.html")
 
 @app.route("/summarize", methods=["POST"])
 def summarize():
@@ -45,16 +49,16 @@ def summarize():
 
     if not api_key or api_key != API_KEY:
         error_message = "Invalid API key. Please enter a valid API key."
-        return render_template("index.html", error_message=error_message)
+        return render_template("index.html", summarized_text=error_message)
 
     if not text:
         error_message = "Text field is required."
-        return render_template("index.html", error_message=error_message)
+        return render_template("index.html", summarized_text=error_message)
 
     summarized_text = summarizer.call_model(text)
 
-    return render_template("result.html", summarized_text=summarized_text)
+    return render_template("index.html", summarized_text=summarized_text)
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
